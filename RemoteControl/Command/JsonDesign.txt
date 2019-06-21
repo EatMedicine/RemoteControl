@@ -1,0 +1,8 @@
+﻿基础定义
+CommandId -- 用于指定这是什么指令
+
+结束进程指令 KillProcess Command
+CommandID = 1
+必要字段
+ProcessName -- 要结束的进程名
+

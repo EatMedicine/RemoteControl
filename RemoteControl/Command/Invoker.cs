@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RemoteControl.Command
 {
@@ -16,15 +17,23 @@ namespace RemoteControl.Command
 
         public void AddCommand(Command cmd)
         {
+            if (cmd == null)
+                return;
             cmdList.Add(cmd);
         }
 
         public void ExecuteAll()
         {
-            foreach(Command cmd in cmdList)
+            //异步执行
+            Task task = Task.Factory.StartNew(() =>
             {
-                cmd.Execute();
-            }
+                foreach (Command cmd in cmdList)
+                {
+                    cmd.Execute();
+                    cmdList.Remove(cmd);
+                }
+            });
+
         }
     }
 }

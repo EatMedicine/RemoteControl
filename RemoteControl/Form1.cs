@@ -19,9 +19,13 @@ namespace RemoteControl
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string tmp = @"{ ""CommandId"":""1"" }";
-            JsonFactory factory = new JsonFactory();
-            factory.CreateCommand(tmp);
+            //string tmp = @"{ ""CommandId"":1 }";
+            //JsonFactory factory = new JsonFactory();
+            //factory.CreateCommand(tmp);
+            TcpListener listener = new TcpListener();
+            listener.StartListen();
         }
+
+
     }
 }
