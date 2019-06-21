@@ -7,6 +7,9 @@ namespace RemoteControl.Command
 {
     public abstract class Command
     {
+        /// <summary>
+        /// 执行命令
+        /// </summary>
         public abstract void Execute();
     }
 }

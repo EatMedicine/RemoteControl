@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RemoteControl.Command;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,9 @@ namespace RemoteControl
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            string tmp = @"{ ""CommandId"":""1"" }";
+            JsonFactory factory = new JsonFactory();
+            factory.CreateCommand(tmp);
         }
     }
 }
