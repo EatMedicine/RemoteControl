@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\CommandProduct\KillProcessCommand.cs" />
+    <Compile Include="Command\CommandProduct\ReturnProcessListCommand.cs" />
     <Compile Include="Command\IFactory.cs" />
     <Compile Include="Command\Invoker.cs" />
     <Compile Include="Command\JsonFactory.cs" />

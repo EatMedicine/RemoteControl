@@ -22,10 +22,14 @@ namespace RemoteControl
             //string tmp = @"{ ""CommandId"":1 }";
             //JsonFactory factory = new JsonFactory();
             //factory.CreateCommand(tmp);
-            TcpListener listener = new TcpListener();
+            TcpListener listener = new TcpListener(this);
             listener.StartListen();
         }
 
+        public void Log(string str)
+        {
+            rtxtLog.AppendText(str + "");
+        }
 
     }
 }

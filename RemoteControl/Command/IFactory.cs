@@ -7,6 +7,6 @@ namespace RemoteControl.Command
 {
     interface IFactory
     {
-        Command CreateCommand(string str);
+        Command CreateCommand(string str,SocketHandler socket);
     }
 }

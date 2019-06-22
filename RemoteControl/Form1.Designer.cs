@@ -28,15 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.rtxtLog = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
+            // 
+            // rtxtLog
+            // 
+            this.rtxtLog.BackColor = System.Drawing.SystemColors.Window;
+            this.rtxtLog.Location = new System.Drawing.Point(12, 12);
+            this.rtxtLog.Name = "rtxtLog";
+            this.rtxtLog.ReadOnly = true;
+            this.rtxtLog.Size = new System.Drawing.Size(366, 278);
+            this.rtxtLog.TabIndex = 0;
+            this.rtxtLog.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 339);
+            this.ClientSize = new System.Drawing.Size(390, 356);
+            this.Controls.Add(this.rtxtLog);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "RemoteControl";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
@@ -44,6 +56,7 @@
 
         #endregion
 
+        private System.Windows.Forms.RichTextBox rtxtLog;
     }
 }
 

@@ -10,7 +10,7 @@ namespace RemoteControl
 {
     public class SocketHandler
     {
-        private Socket _socket;
+        public Socket _socket;
         private IFactory factory;
         public Invoker invoker = null;
 
@@ -21,7 +21,6 @@ namespace RemoteControl
             invoker = new Invoker();
             factory = new JsonFactory();
 
-            _socket.Send(Encoding.UTF8.GetBytes("Hello"));
 
             Task task = Task.Factory.StartNew(() =>
             {
@@ -29,18 +28,18 @@ namespace RemoteControl
                 {
                     while (true)
                     {
-                        byte[] buffer = new byte[1024*1024];
+                        byte[] buffer = new byte[1024*16];
                         int length = _socket.Receive(buffer);
                         if (length == 0)
                             continue;
                         string msg = Encoding.UTF8.GetString(buffer, 0, length);
-                        invoker.AddCommand(factory.CreateCommand(msg));
+                        invoker.AddCommand(factory.CreateCommand(msg,this));
                         invoker.ExecuteAll();
                     }
                 }
                 catch (Exception ex)
                 {
-                    
+                    socket.Dispose();
                 }
             });
         }

@@ -19,9 +19,11 @@ namespace RemoteControl
         private Task listenTask = null;
         private CancellationTokenSource tokenSource = null;
         private Socket mSocket = null;
+        public Form1 form = null;
 
-        public TcpListener()
+        public TcpListener(Form1 form)
         {
+            this.form = form;
             StartListen();
         }
 
@@ -50,6 +52,7 @@ namespace RemoteControl
                         break;
                     }
                     Socket newSocket = mSocket.Accept();
+                
                     new SocketHandler(newSocket);
                     Thread.Sleep(1000);
                 }

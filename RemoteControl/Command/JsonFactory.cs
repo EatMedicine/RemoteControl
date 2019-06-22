@@ -10,7 +10,7 @@ namespace RemoteControl.Command
 {
     public class JsonFactory : IFactory
     {
-        public Command CreateCommand(string str)
+        public Command CreateCommand(string str,SocketHandler handler)
         {
             JObject obj;
             try
@@ -35,6 +35,8 @@ namespace RemoteControl.Command
                         return null;
                     else
                         return new KillProcessCommand(obj["ProcessName"].ToString());
+                //ReturnProcessList
+                case 2: return new ReturnProcessListCommand(handler._socket);
                 default:break;
             }
             return null;

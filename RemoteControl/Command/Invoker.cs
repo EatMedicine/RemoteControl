@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RemoteControl.Command
 {
@@ -24,6 +25,7 @@ namespace RemoteControl.Command
 
         public void ExecuteAll()
         {
+            
             //异步执行
             Task task = Task.Factory.StartNew(() =>
             {
