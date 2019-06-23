@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RemoteControl
@@ -26,12 +27,15 @@ namespace RemoteControl
             {
                 try
                 {
+                    byte[] buffer = new byte[1024 * 16];
                     while (true)
                     {
-                        byte[] buffer = new byte[1024*16];
                         int length = _socket.Receive(buffer);
                         if (length == 0)
+                        {
+                            Thread.Sleep(10);
                             continue;
+                        }
                         string msg = Encoding.UTF8.GetString(buffer, 0, length);
                         invoker.AddCommand(factory.CreateCommand(msg,this));
                         invoker.ExecuteAll();
