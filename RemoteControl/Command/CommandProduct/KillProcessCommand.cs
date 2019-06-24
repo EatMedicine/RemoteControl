@@ -16,7 +16,6 @@ namespace RemoteControl.Command.CommandProduct
         /// </summary>
         public string ProcessName { get; set; }
 
-
         public KillProcessCommand(string processName)
         {
             if(processName == null)
@@ -24,6 +23,8 @@ namespace RemoteControl.Command.CommandProduct
                 ProcessName = "";
             }
             ProcessName = processName;
+            //指令ID
+            CommandId = 1;
         }
 
         public override void Execute()

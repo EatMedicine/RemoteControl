@@ -22,7 +22,6 @@ namespace RemoteControl
             invoker = new Invoker();
             factory = new JsonFactory();
 
-
             Task task = Task.Factory.StartNew(() =>
             {
                 try
@@ -43,6 +42,7 @@ namespace RemoteControl
                 }
                 catch (Exception ex)
                 {
+                    Form1.form.Log("连接断开\n");
                     socket.Dispose();
                 }
             });

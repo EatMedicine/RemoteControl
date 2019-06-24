@@ -19,11 +19,9 @@ namespace RemoteControl
         private Task listenTask = null;
         private CancellationTokenSource tokenSource = null;
         private Socket mSocket = null;
-        public Form1 form = null;
 
-        public TcpListener(Form1 form)
+        public TcpListener()
         {
-            this.form = form;
             StartListen();
         }
 
@@ -51,10 +49,19 @@ namespace RemoteControl
                     {
                         break;
                     }
-                    Socket newSocket = mSocket.Accept();
-                
-                    new SocketHandler(newSocket);
-                    Thread.Sleep(1000);
+                    try
+                    {
+                        Socket newSocket = mSocket.Accept();
+                        Form1.form.Log("新建新的连接\n");
+                        new SocketHandler(newSocket);
+                        Thread.Sleep(1000);
+                    }
+                    catch
+                    {
+                        Form1.form.Log("断开连接\n");
+                        break;
+                    }
+
                 }
             }, token);
             isListening = true;

@@ -15,6 +15,8 @@ namespace RemoteControl.Command.CommandProduct
         public ReturnProcessListCommand(Socket socket)
         {
             mSocket = socket;
+            //指令ID
+            CommandId = 2;
         }
 
         public override void Execute()

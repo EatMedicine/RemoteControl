@@ -31,6 +31,7 @@ namespace RemoteControl.Command
             {
                 foreach (Command cmd in cmdList)
                 {
+                    Form1.form.Log("执行命令" + cmd.CommandId + "\n");
                     cmd.Execute();
                     cmdList.Remove(cmd);
                 }
