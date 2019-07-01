@@ -52,7 +52,9 @@
   <ItemGroup>
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\CommandProduct\KillProcessCommand.cs" />
+    <Compile Include="Command\CommandProduct\OpenFileCommand.cs" />
     <Compile Include="Command\CommandProduct\ReturnProcessListCommand.cs" />
+    <Compile Include="Command\CommandProduct\ReturnFileListCommand.cs" />
     <Compile Include="Command\CommandProduct\SendMessageCommand.cs" />
     <Compile Include="Command\IFactory.cs" />
     <Compile Include="Command\Invoker.cs" />

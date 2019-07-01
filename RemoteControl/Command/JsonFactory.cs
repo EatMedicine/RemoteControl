@@ -38,6 +38,8 @@ namespace RemoteControl.Command
                 //ReturnProcessList
                 case 2: return new ReturnProcessListCommand(handler._socket);
                 case 3: return new SendMessageCommand(obj["Message"]);
+                case 4: return new ReturnFileListCommand(handler._socket,obj["Path"]);
+                case 5: return new OpenFileCommand(obj["FileName"]);
                 default:break;
             }
             return null;
