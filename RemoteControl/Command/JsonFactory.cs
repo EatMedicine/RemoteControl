@@ -40,6 +40,7 @@ namespace RemoteControl.Command
                 case 3: return new SendMessageCommand(obj["Message"]);
                 case 4: return new ReturnFileListCommand(handler._socket,obj["Path"]);
                 case 5: return new OpenFileCommand(obj["FileName"]);
+                case 6: return new RunCmdCommand(obj["Command"]);
                 default:break;
             }
             return null;
