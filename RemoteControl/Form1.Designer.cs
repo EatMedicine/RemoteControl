@@ -32,12 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.rtxtLog = new System.Windows.Forms.RichTextBox();
             this.nico1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rtxtLog
             // 
             this.rtxtLog.BackColor = System.Drawing.SystemColors.Window;
-            this.rtxtLog.Location = new System.Drawing.Point(12, 12);
+            this.rtxtLog.Location = new System.Drawing.Point(12, 57);
             this.rtxtLog.Name = "rtxtLog";
             this.rtxtLog.ReadOnly = true;
             this.rtxtLog.Size = new System.Drawing.Size(366, 278);
@@ -49,19 +50,32 @@
             this.nico1.Icon = ((System.Drawing.Icon)(resources.GetObject("nico1.Icon")));
             this.nico1.Text = "RemoteControl";
             this.nico1.Visible = true;
+            this.nico1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.nico1_MouseClick);
             this.nico1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.nico1_MouseDoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Log";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 356);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.rtxtLog);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "RemoteControl";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,6 +83,7 @@
 
         private System.Windows.Forms.RichTextBox rtxtLog;
         private System.Windows.Forms.NotifyIcon nico1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
