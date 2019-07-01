@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -16,11 +17,26 @@ namespace RemoteControl.Command.CommandProduct
         /// </summary>
         public string ProcessName { get; set; }
 
+
+        public KillProcessCommand(JToken obj)
+        {
+            if (obj == null)
+            {
+                ProcessName = null;
+            }
+            else
+            {
+                ProcessName = obj.ToString();
+            }
+            //指令ID
+            CommandId = 1;
+        }
+
         public KillProcessCommand(string processName)
         {
             if(processName == null)
             {
-                ProcessName = "";
+                ProcessName = null;
             }
             ProcessName = processName;
             //指令ID

@@ -34,9 +34,10 @@ namespace RemoteControl.Command
                     if (obj["ProcessName"] == null)
                         return null;
                     else
-                        return new KillProcessCommand(obj["ProcessName"].ToString());
+                        return new KillProcessCommand(obj["ProcessName"]);
                 //ReturnProcessList
                 case 2: return new ReturnProcessListCommand(handler._socket);
+                case 3: return new SendMessageCommand(obj["Message"]);
                 default:break;
             }
             return null;

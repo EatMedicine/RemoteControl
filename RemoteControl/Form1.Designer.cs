@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.rtxtLog = new System.Windows.Forms.RichTextBox();
+            this.nico1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // rtxtLog
@@ -41,12 +44,20 @@
             this.rtxtLog.TabIndex = 0;
             this.rtxtLog.Text = "";
             // 
+            // nico1
+            // 
+            this.nico1.Icon = ((System.Drawing.Icon)(resources.GetObject("nico1.Icon")));
+            this.nico1.Text = "RemoteControl";
+            this.nico1.Visible = true;
+            this.nico1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.nico1_MouseDoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 356);
             this.Controls.Add(this.rtxtLog);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "RemoteControl";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -57,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox rtxtLog;
+        private System.Windows.Forms.NotifyIcon nico1;
     }
 }
 

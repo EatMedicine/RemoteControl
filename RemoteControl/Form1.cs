@@ -12,9 +12,9 @@ namespace RemoteControl
 {
     public partial class Form1 : Form
     {
-
         delegate void deg(object obj);
         public static Form1 form;
+        private bool isHide;
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace RemoteControl
             TcpListener listener = new TcpListener();
             listener.StartListen();
             form = this;
-
+            HideAll();
         }
 
         private void SetTextBoxValue(object str)
@@ -49,6 +49,32 @@ namespace RemoteControl
             }
         }
 
+        public void ShowBalloonTip(string tipTitle,string tipText)
+        {
+            nico1.ShowBalloonTip(1000, tipTitle, tipText, ToolTipIcon.None);
+        }
 
+        private void nico1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (isHide == true)
+                ShowAll();
+            else
+                HideAll();
+        }
+
+        private void ShowAll()
+        {
+            this.Show();
+            this.Activate();
+            this.ShowInTaskbar = true;
+            isHide = false;
+        }
+
+        private void HideAll()
+        {
+            isHide = true;
+            this.Hide();
+            this.ShowInTaskbar = false;
+        }
     }
 }
